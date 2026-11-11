@@ -1,6 +1,5 @@
-# ARG BUILD_FROM
-# FROM ${BUILD_FROM}
-FROM ghcr.io/hassio-addons/debian-base/aarch64:7.6.0
+ARG BUILD_FROM="ghcr.io/hassio-addons/debian-base/aarch64:7.6.0"
+FROM ${BUILD_FROM}
 
 ENV LANG=C.UTF-8 \
     LC_ALL=C.UTF-8 \
@@ -32,7 +31,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN npm install -g @modelcontextprotocol/server-memory 2>/dev/null || true
 
 # Install GitHub Copilot CLI (standalone binary — no Node.js needed)
-ARG BUILD_ARCH
+ARG BUILD_ARCH="aarch64"
 RUN case "${BUILD_ARCH}" in \
         amd64) COPILOT_ARCH="x64" ;; \
         aarch64) COPILOT_ARCH="arm64" ;; \
