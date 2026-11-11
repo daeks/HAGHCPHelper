@@ -29,7 +29,7 @@ map:
   - media:ro
 options:
   github_token: ""
-  model: "claude-opus-4.6"
+  model: "MAI-Code-1.1-Flash"
   session_name: "copilot"
   tmux_history_limit: 50000
   auto_approve: true
