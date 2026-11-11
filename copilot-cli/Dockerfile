@@ -31,13 +31,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN npm install -g @modelcontextprotocol/server-memory 2>/dev/null || true
 
 # Install GitHub Copilot CLI (standalone binary — no Node.js needed)
-ARG ARCH="aarch64"
 ARG BUILD_ARCH="aarch64"
-RUN case "${BUILD_ARCH}" in \
-        amd64) COPILOT_ARCH="x64" ;; \
-        aarch64) COPILOT_ARCH="arm64" ;; \
-        *) echo "Unsupported BUILD_ARCH=${BUILD_ARCH}" >&2; exit 1 ;; \
-    esac && \
+ARG COPILOT_ARCH="arm64"
+# RUN case "${BUILD_ARCH}" in \
+#         amd64) COPILOT_ARCH="x64" ;; \
+#         aarch64) COPILOT_ARCH="arm64" ;; \
+#         *) echo "Unsupported BUILD_ARCH=${BUILD_ARCH}" >&2; exit 1 ;; \
+RUN esac && \
     echo "Using Copilot CLI for ${BUILD_ARCH} -> ${COPILOT_ARCH}" && \
     curl -fsSL \
       "https://github.com/github/copilot-cli/releases/latest/download/copilot-linux-${COPILOT_ARCH}.tar.gz" \
@@ -49,11 +49,12 @@ RUN case "${BUILD_ARCH}" in \
     copilot --version
 
 # Install ttyd (web terminal server)
-RUN case "${BUILD_ARCH}" in \
-        amd64) TTYD_ARCH="x86_64" ;; \
-        aarch64) TTYD_ARCH="aarch64" ;; \
-        *) echo "Unsupported BUILD_ARCH=${BUILD_ARCH}" >&2; exit 1 ;; \
-    esac && \
+# RUN case "${BUILD_ARCH}" in \
+#         amd64) TTYD_ARCH="x86_64" ;; \
+#         aarch64) TTYD_ARCH="aarch64" ;; \
+#         *) echo "Unsupported BUILD_ARCH=${BUILD_ARCH}" >&2; exit 1 ;; \
+ARG TTYD_ARCH="aarch64"
+RUN esac && \
     echo "Using ttyd for ${BUILD_ARCH} -> ${TTYD_ARCH}" && \
     curl -fsSL \
       "https://github.com/tsl0922/ttyd/releases/download/1.7.7/ttyd.${TTYD_ARCH}" \
