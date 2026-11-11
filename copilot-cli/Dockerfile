@@ -41,8 +41,7 @@ RUN BUILD_ARCH="aarch64" && \
     tar -xzf /tmp/copilot.tar.gz -C /usr/local/bin && \
     chmod +x /usr/local/bin/copilot && \
     rm -f /tmp/copilot.tar.gz && \
-    file /usr/local/bin/copilot && \
-    copilot --version
+    /usr/local/bin/copilot --version
 
 # Install ttyd (web terminal server)
 RUN TTYD_ARCH="aarch64" && \
