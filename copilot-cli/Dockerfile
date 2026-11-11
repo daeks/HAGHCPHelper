@@ -1,5 +1,6 @@
-ARG BUILD_FROM
-FROM ${BUILD_FROM}
+# ARG BUILD_FROM
+# FROM ${BUILD_FROM}
+FROM ghcr.io/hassio-addons/debian-base/aarch64:7.6.0
 
 ENV LANG=C.UTF-8 \
     LC_ALL=C.UTF-8 \
