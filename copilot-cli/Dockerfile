@@ -31,6 +31,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN npm install -g @modelcontextprotocol/server-memory 2>/dev/null || true
 
 # Install GitHub Copilot CLI (standalone binary — no Node.js needed)
+ARG ARCH="aarch64"
 ARG BUILD_ARCH="aarch64"
 RUN case "${BUILD_ARCH}" in \
         amd64) COPILOT_ARCH="x64" ;; \
