@@ -1,6 +1,6 @@
 ---
 name: "GitHub Copilot CLI"
-version: "4.0.3"
+version: "4.0.4"
 slug: copilot_cli
 description: >-
   Run GitHub Copilot's AI coding agent directly in your Home Assistant
@@ -29,7 +29,7 @@ map:
   - media:ro
 options:
   github_token: ""
-  model: "MAI-Code-1.1-Flash"
+  model: "mai-code-1.1-flash"
   session_name: "copilot"
   tmux_history_limit: 50000
   auto_approve: true
