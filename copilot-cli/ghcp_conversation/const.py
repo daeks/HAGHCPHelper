@@ -42,7 +42,7 @@ GITHUB_MODELS_URL = "https://models.github.ai/inference/chat/completions"
 GITHUB_CATALOG_URL = "https://models.github.ai/catalog/models"
 GITHUB_API_VERSION = "2026-03-10"
 
-DEFAULT_MODEL = "MAI-Code-1.1-Flash"
+DEFAULT_MODEL = "mai-code-1.1-flash"
 DEFAULT_TEMPERATURE = 0.7
 DEFAULT_MAX_TOKENS = 4096
 
@@ -55,7 +55,7 @@ FALLBACK_MODELS = [
     "gpt-5.4",
     "claude-sonnet-4.6",
     "claude-opus-4.6",
-    "MAI-Code-1.1-Flash",
+    "mai-code-1.1-flash",
 ]
 
 DEFAULT_PROMPT = (
